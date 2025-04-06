@@ -9,15 +9,21 @@ import handleProfileId from './controllers/profileId.js';
 import handleImage from './controllers/image.js';
 import handleAnalyze from './controllers/analyze.js';
 
+// const db = knex({
+//     client: 'pg',
+//     connection: {
+//         host: 'localhost',
+//         port: 5432,
+//         user: 'postgres',
+//         password: 'test',
+//         database: 'app',
+//     },
+// });
+
 const db = knex({
     client: 'pg',
-    connection: {
-        host: 'localhost',
-        port: 5432,
-        user: 'postgres',
-        password: 'test',
-        database: 'app',
-    },
+    connection: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false },
 });
 
 const app = express();
