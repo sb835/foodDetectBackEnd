@@ -2,6 +2,7 @@ import express from 'express';
 import argon2 from 'argon2';
 import cors from 'cors';
 import knex from 'knex';
+import dotenv from 'dotenv';
 
 import handleRegister from './controllers/register.js';
 import handleSignIn from './controllers/signin.js';
@@ -9,6 +10,7 @@ import handleProfileId from './controllers/profileId.js';
 import handleImage from './controllers/image.js';
 import handleAnalyze from './controllers/analyze.js';
 
+dotenv.config();
 // const db = knex({
 //     client: 'pg',
 //     connection: {
@@ -35,6 +37,8 @@ app.use(
         credentials: true,
     })
 );
+
+console.log('DATABASE_URL:', process.env.DATABASE_URL);
 
 // Returns the info necessary to detect the food from the clarifai API
 app.get('/', (req, res) => {
