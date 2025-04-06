@@ -1,4 +1,4 @@
-# 🧠 SmartBrain – Backend (Node.js + Express)
+# 🧠Backend (Node.js + Express)
 
 Dieses Backend verarbeitet Anfragen für eine Food Recognition Web-App.  
 Es ermöglicht Benutzerregistrierung, Anmeldung und das Zählen von Bildanalysen.
