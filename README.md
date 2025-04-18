@@ -1,39 +1,68 @@
-# 🧠Backend (Node.js + Express)
+# 🧠 Food Recognition Backend
 
-Dieses Backend verarbeitet Anfragen für eine Food Recognition Web-App.  
-Es ermöglicht Benutzerregistrierung, Anmeldung und das Zählen von Bildanalysen.
-
----
-
-## 🚀 Deployment
-
-Die App ist als **Web Service auf [Render](https://render.com)** gehostet.  
-Beim Deployment wird automatisch:
-
--   das Repository von GitHub gepullt
--   `npm install` ausgeführt
--   und der Server via `npm start` gestartet
-
-Umgebungsvariablen wie die `DATABASE_URL` werden im Render-Dashboard gesetzt.  
-Verbindungen zur Datenbank erfolgen über **SSL (TLS erforderlich)**.
+Node.js + Express API for a food image recognition web app.  
+Handles user registration, sign-in, and counts how many images each user analyzes.
 
 ---
 
-## 🗄️ Datenbank
+## Features
 
-Das Backend verwendet eine **PostgreSQL-Datenbank**, gehostet ebenfalls auf Render.  
-Es gibt zwei Tabellen:
-
--   `users`: speichert Benutzerinformationen, Registrierungszeitpunkt und Bildanalyse-Zähler
--   `login`: speichert gehashte Passwörter (mit argon2) getrennt von den Userdaten
-
-Die Datenbankverbindung wird über **`knex.js`** verwaltet.
+-   User registration and sign-in
+-   Secure password hashing with `argon2`
+-   Tracks number of images submitted per user
+-   Connects to a PostgreSQL database
+-   CORS enabled for GitHub Pages frontend
+-   Deployment-ready via Render.com
 
 ---
 
-## 📦 Stack
+## Database
 
--   **Node.js** + **Express**
--   **PostgreSQL** via **knex**
--   **argon2** zum sicheren Passwort-Hashing
--   CORS aktiviert für das GitHub Pages Frontend
+Uses **PostgreSQL**, hosted on Render.  
+There are two tables:
+
+-   `users`: Stores user name, email, registration timestamp, and number of image submissions
+-   `login`: Stores hashed passwords (with `argon2`), separated from user data
+
+Database connection is managed via **`knex.js`**  
+and secured using **SSL (TLS required)**.
+
+---
+
+## Tech Stack
+
+-   **Node.js**
+-   **Express**
+-   **PostgreSQL** (via `knex`)
+-   **argon2** (password hashing)
+-   **CORS** (for frontend communication)
+
+---
+
+## Deployment
+
+This backend is deployed as a **web service on [Render](https://render.com)**.  
+Deployment automatically performs:
+
+1. GitHub repo pull
+2. `npm install`
+3. Server start via `npm start`
+
+**Note:**  
+Environment variables like `DATABASE_URL` are configured in the Render dashboard.
+
+---
+
+## ▶️ Getting Started (Local)
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/your-username/food-recognition-backend.git
+cd food-recognition-backend
+
+# 2. Install dependencies
+npm install
+
+# 3. Start the development server
+npm start
+```
